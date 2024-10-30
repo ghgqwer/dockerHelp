@@ -1,0 +1,10 @@
+FROM golang:1.23-bullseye
+WORKDIR /app
+COPY . .
+RUN ls
+# . . Потому что мы собираем го файл тут же
+RUN go build -o /app/echo /app/cmd/echo/
+# собираем го файл в контейнере
+#записываем в апп/эко берем из апп/смд/эко (потому что выше мы скопировали все в апп и все зависимости те же)
+ENTRYPOINT [ "/app/echo", "deafult sfd"]
+#?
